@@ -1,0 +1,10 @@
+#!/bin/sh
+'''exec' "/Users/thanetate/Desktop/Computer Science Stuff/C C++/CSCE 3110/Spring 2024 3110/Final Project (THIS ONE)/DSA-Final-Project/faker/bin/python3.12" "$0" "$@"
+' '''
+# -*- coding: utf-8 -*-
+import re
+import sys
+from faker.cli import execute_from_command_line
+if __name__ == '__main__':
+    sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0])
+    sys.exit(execute_from_command_line())

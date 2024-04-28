@@ -79,6 +79,37 @@ private:
         }
     }
 
+// function for deletion for ints and strings
+TreeNode* deleteRecByName(TreeNode* root, const string& name) {
+    if (root == nullptr) {
+        return root;
+    }
+
+    // Recur down the tree
+    if (name < root->data.name) {
+        root->left = deleteRecByName(root->left, name);
+    } else if (name > root->data.name) {
+        root->right = deleteRecByName(root->right, name);
+    } else {
+        // Node with only one child/no child
+        if (root->left == nullptr) {
+            TreeNode* temp = root->right;
+            delete root;
+            return temp;
+        } else if (root->right == nullptr) {
+            TreeNode* temp = root->left;
+            delete root;
+            return temp;
+        }
+
+        // two children node
+        TreeNode* temp = minValueNode(root->right);
+        root->data = temp->data;
+        root->right = deleteRecByName(root->right, temp->data.name);
+    }
+    return root;
+}
+
 public:
     BinarySearchTree() : root(nullptr) {}
 
@@ -115,6 +146,11 @@ public:
     // search by zip
     bool search(int zip) {
         return searchRecInt(root, zip);
+    }
+
+    // Function to delete a node from the tree by name of ints or strings
+    void deleteNodeByName(const string& name) {
+        root = deleteRecByName(root, name);
     }
 };
 

@@ -1,5 +1,7 @@
 # DSA-Final-Project
-NEW DSA PROJECT
+
+# Portions
+Python Faker Library - Thane Tate
 
 
 

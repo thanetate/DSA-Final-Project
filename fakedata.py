@@ -22,7 +22,7 @@ def generate(file_path):
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
         writer.writeheader()
-        for _ in range(10):
+        for _ in range(1000000):
             writer.writerow({
                 'name': fake.first_name(),
                 'DOB': fake.date_of_birth().strftime("%Y-%m-%d"),

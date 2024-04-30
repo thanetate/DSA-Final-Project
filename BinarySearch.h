@@ -31,23 +31,16 @@ private:
     TreeNode* root;
 
     // Private member functions for internal use
-    TreeNode* insertRec(TreeNode* root, const NodeData& data);
-    bool searchRecInt(TreeNode* root, int id);
-    bool searchRecString(TreeNode* root, const string& name);
+    TreeNode* insertRecByID(TreeNode* root, const NodeData& data);
+    bool searchRecByID(TreeNode* root, int id);
     TreeNode* deleteRecByID(TreeNode* root, const string& name);
     TreeNode* minValueNode(TreeNode* node);
 
 public:
     BinarySearchTree(); // Constructor
     ~BinarySearchTree(); // Destructor
-    void insert(const NodeData& data);
-    bool searchId(int id);
-    bool searchName(string name);
-    bool searchDOB(string dob);
-    bool searchStreet(string street);
-    bool searchCity(string city);
-    bool searchState(string state);
-    bool search(int zip);
+    void insertByID(const NodeData& data);
+    bool searchByID(int id);
     void deleteNodeByID(const string& name);
 };
 

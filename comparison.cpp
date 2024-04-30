@@ -3,6 +3,9 @@
 #include "comparison.h"
 #include <sstream>
 
+//time variables
+double startTime, timeDif;
+
 // Helper function to create a new ListNode
 ListNode* createListNode(const std::string& line) {
     std::stringstream ss(line);
@@ -142,29 +145,94 @@ int main() {
 
     // Linked List
     ListNode* listHead = nullptr;
+
+    //starts the clock for insertions
+    startTime = (double) clock();
+    startTime = startTime/CLOCKS_PER_SEC;
+
     insertListNode(listHead, data1);
     insertListNode(listHead, data2);
     insertListNode(listHead, data3);
+    //ends clock and prints time for all three insertions
+    timeDif = (((double)clock())/CLOCKS_PER_SEC)-startTime;
+    printf("The elapsed time for the LL insertions is %lf seconds\n", timeDif);
+
+    //starts the clock for display function
+    startTime = (double) clock();
+    startTime = startTime/CLOCKS_PER_SEC;
     std::cout << "Linked List:" << std::endl;
     displayList(listHead);
+
+    //ends clock and prints time for display function
+    timeDif = (((double)clock())/CLOCKS_PER_SEC)-startTime;
+    printf("The elapsed time for display() is %lf seconds\n", timeDif);
+
+    //starts clock for searchLL()
+    startTime = (double) clock();
+    startTime = startTime/CLOCKS_PER_SEC;
     ListNode* foundList = searchList(listHead, "Jane Smith");
+
+    //ends clock when found
+    timeDif = (((double)clock())/CLOCKS_PER_SEC)-startTime;
+    printf("The elapsed time for searchList() is %lf seconds\n", timeDif);
     if (foundList) {
         std::cout << "Found in list: " << foundList->name << std::endl;
     }
+
+    //starts clock for delete()
+    startTime = (double) clock();
+    startTime = startTime/CLOCKS_PER_SEC;
     deleteList(listHead);
+    //ends clock when deleted
+    timeDif = (((double)clock())/CLOCKS_PER_SEC)-startTime;
+    printf("The elapsed time for deleteList() is %lf seconds\n\n", timeDif);
+
 
     // Binary Search Tree
     TreeNode* treeRoot = nullptr;
+    
+    //starts the clock for insertions
+    startTime = (double) clock();
+    startTime = startTime/CLOCKS_PER_SEC;
+
     insertTreeNode(treeRoot, data1);
     insertTreeNode(treeRoot, data2);
     insertTreeNode(treeRoot, data3);
+    //ends clock and prints time for all three insertions
+    timeDif = (((double)clock())/CLOCKS_PER_SEC)-startTime;
+    printf("The elapsed time for the BST insertions is %lf seconds\n", timeDif);
+
     std::cout << "Binary Search Tree:" << std::endl;
+
+   //starts the clock for display function
+    startTime = (double) clock();
+    startTime = startTime/CLOCKS_PER_SEC;
+
     displayTreeInOrder(treeRoot);
+
+    //ends clock and prints time for display function
+    timeDif = (((double)clock())/CLOCKS_PER_SEC)-startTime;
+    printf("The elapsed time for display() is %lf seconds\n", timeDif);
+
+    //starts clock for searchBST()
+    startTime = (double) clock();
+    startTime = startTime/CLOCKS_PER_SEC;
     TreeNode* foundTree = searchTree(treeRoot, "Jane Smith");
+
+    //ends clock when found
+    timeDif = (((double)clock())/CLOCKS_PER_SEC)-startTime;
+    printf("The elapsed time for searchList() is %lf seconds\n", timeDif);
     if (foundTree) {
         std::cout << "Found in tree: " << foundTree->name << std::endl;
     }
+
+    //starts clock for delete()
+    startTime = (double) clock();
+    startTime = startTime/CLOCKS_PER_SEC;
     deleteTree(treeRoot);
+    //ends clock when deleted
+    timeDif = (((double)clock())/CLOCKS_PER_SEC)-startTime;
+    printf("The elapsed time for deleteList() is %lf seconds\n", timeDif);
 
     return 0;
 }

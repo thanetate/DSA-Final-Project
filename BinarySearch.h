@@ -33,7 +33,7 @@ private:
     // Private member functions for internal use
     TreeNode* insertRecByID(TreeNode* root, const NodeData& data);
     bool searchRecByID(TreeNode* root, int id);
-    TreeNode* deleteRecByID(TreeNode* root, const string& name);
+    TreeNode* deleteRecByID(TreeNode* root, int id);
     TreeNode* minValueNode(TreeNode* node);
 
 public:
@@ -41,7 +41,7 @@ public:
     ~BinarySearchTree(); // Destructor
     void insertByID(const NodeData& data);
     bool searchByID(int id);
-    void deleteNodeByID(const string& name);
+    void deleteNodeByID(int id);
 };
 
 #endif

@@ -7,9 +7,9 @@ TreeNode* BinarySearchTree::insertRecByID(TreeNode* root, const NodeData& data) 
     }
 
     if (data.id < root->data.id) {
-        root->left = insertRec(root->left, data);
+        root->left = insertRecByID(root->left, data);
     } else if (data.id > root->data.id) {
-        root->right = insertRec(root->right, data);
+        root->right = insertRecByID(root->right, data);
     }
 
     return root;
@@ -24,9 +24,9 @@ bool BinarySearchTree::searchRecByID(TreeNode* root, int id) {
     if (root->data.id == id) {
         return true;
     } else if (id < root->data.id) {
-        return searchRecInt(root->left, id);
+        return searchRecByID(root->left, id);
     } else {
-        return searchRecInt(root->right, id);
+        return searchRecByID(root->right, id);
     }
 }
 
@@ -74,18 +74,17 @@ TreeNode* deleteRecByID(TreeNode* root, int id) {
     return root;
 }
 
-public:
 // Function to insert a node into the tree by ID
-void insertByID(const NodeData& data) {
+void BinarySearchTree::insertByID(const NodeData& data) {
     root = insertRecByID(root, data);
 }
 
 // Function to delete a node from the tree by ID
-void deleteNodeByID(int id) {
+void BinarySearchTree::deleteNodeByID(int id) {
     root = deleteRecByID(root, id);
 }
 
 // Function to search for a node in the tree by ID
-bool searchByID(int id) {
+bool BinarySearchTree::searchByID(int id) {
      return searchRecByID(root, id);
 }

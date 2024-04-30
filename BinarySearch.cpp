@@ -82,7 +82,6 @@ void deleteNodeByID(int id) {
     root = deleteRecByID(root, id);
 }
     return root;
-}
 
 // Function to insert a node into the tree
 void BinarySearchTree::insert(const NodeData& data) {

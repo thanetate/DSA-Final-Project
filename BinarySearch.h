@@ -34,7 +34,7 @@ private:
     TreeNode* insertRec(TreeNode* root, const NodeData& data);
     bool searchRecInt(TreeNode* root, int id);
     bool searchRecString(TreeNode* root, const string& name);
-    TreeNode* deleteRecByName(TreeNode* root, const string& name);
+    TreeNode* deleteRecByID(TreeNode* root, const string& name);
     TreeNode* minValueNode(TreeNode* node);
 
 public:
@@ -48,7 +48,7 @@ public:
     bool searchCity(string city);
     bool searchState(string state);
     bool search(int zip);
-    void deleteNodeByName(const string& name);
+    void deleteNodeByID(const string& name);
 };
 
 #endif

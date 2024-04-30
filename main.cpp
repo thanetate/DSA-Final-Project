@@ -1,24 +1,15 @@
 #include <iostream>
 #include <string>
 #include "LinkedList.h"
+#include "BinarySearch.h"
 //fake data needs
 #include <fstream>
 #include <sstream>
 
 using namespace std;
 
-//define NodeData
-struct NodeData {
-    int id;
-    string name;
-    string dob;
-    string street;
-    string city;
-    int zip;
-};
-
 //read fake data from CSV
-void ReadandPopulateLinkedList(LinkedList& StudentList, const string& file_path)
+void ReadandPopulateLinkedList(BinarySearchTree& StudentBST, LinkedList& StudentList, const string& file_path)
 {
     ifstream file(file_path);
 
@@ -56,8 +47,20 @@ void ReadandPopulateLinkedList(LinkedList& StudentList, const string& file_path)
         getline(ss, token);      // Read zip
         zip = stoi(token);
 
+        //for BST
+        NodeData data;
+        data.id = id;
+        data.name = name;
+        data.dob = dob;
+        data.street = street;
+        data.city = city;
+        data.state = state;
+        data.zip = zip;
+
         // Add person to LinkedList
         StudentList.Addperson(id, name, dob, street, city, state, zip);
+        // Add person to BST
+        StudentBST.insert(data);
     }
 
     file.close();
@@ -82,27 +85,33 @@ int displaymenu()
 }
 
 int main(){
+//Linked List
 LinkedList StudentList;
+//BST
+BinarySearchTree StudentBST;
 
 //read and populate linked list with fake data
-ReadandPopulateLinkedList(StudentList, "fake_data.csv");
+ReadandPopulateLinkedList(StudentBST, StudentList, "fake_data.csv");
 //StudentList.Addperson(2021,"john", "01/01/2002", "Hickory","denton","TX",76201);
 
 int C;
     do{//do while llop to ensure all functions are accesible and menu will pop up until usser exits program.
     C = displaymenu();
-    if(C == 1){ 
+    if(C == 1){
+        //NodeData newStudent;
         string n;
         string dob, a,a2,a3;
         int id, a4;
         cout << "Enter name: ";
         cin >> n;
+        //cin >> newStudent.id;
         //getline(cin,n);
         cout << "Enter ID: ";
         cin >> id;
         cout << "Enter Date of Birth: ";
         cin.ignore();
         getline(cin,dob);
+        //getline(cin, newStudent.name);
         cout << "Address(Street): ";
         cin >> a;
         cout << "Address(City): ";
@@ -113,24 +122,39 @@ int C;
         cout << "Address(Zip Code): ";
         
         cin >> a4;
-        StudentList.Addperson(id,n,dob,a,a2,a3,a4);}
-     else if (C ==2){
+        //Linked List
+        StudentList.Addperson(id,n,dob,a,a2,a3,a4);
+        //BST
+        //StudentBST.insert(newStudent);
+        }
+      else if (C ==2){
         int id; 
         cout << "Enter students ID: ";
         cin >> id;
+        //LinkedList
         StudentList.DeletePerson(id);
+        //BST
+        //StudentBST.deleteNodebyId(id);
         break;
     }
     else if(C == 3){
         int id;
         cout << "Enter students ID: ";
         cin >> id;
+        //LinkedList
         Node* student = StudentList.SearchPerson(id);
         if(student!= nullptr){
             cout << "Student located: "<< student->name<<endl;
         }
         else{
             cout << "Id provided is not found in our Student List"<<endl;
+        }
+        //BST
+        bool found = StudentBST.searchId(id);
+        if(found) {
+            cout<<"Student found in BST."<<endl;
+        } else {
+            cout<<"Student not found in BST."<<endl;
         }
         break;
     }
@@ -143,6 +167,7 @@ int C;
         string n;
         cout << "Enter student name: ";
         cin >> n;
+        //LinkedList
         Node* student = StudentList.SearchPersonN(n);
         if(student!= nullptr){
             cout << "Student located: "<< "name: "<< student->name<<endl;
@@ -152,12 +177,20 @@ int C;
         else{
             cout << "Name provided is not found in our Student List"<<endl;
         }
+        //BST
+        bool found = StudentBST.searchName(n);
+        if (found) {
+                cout << "Student found in the BST." << endl;
+            } else {
+                cout << "Student not found in the BST." << endl;
+            }
         break;
     }
     else if(C == 6){
         int n;
         cout << "Enter ID: ";
         cin >> n;
+        //Linked List
         StudentList.UpdateInfo(n);
     }
 

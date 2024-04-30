@@ -5,7 +5,7 @@ Run this command : make
 then run : ./a.out
 
 # Portions
-Python Faker Library - Thane Tate
+Python Faker Library, main.cpp - Thane Tate
 
 
 

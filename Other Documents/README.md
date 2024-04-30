@@ -1,6 +1,6 @@
 # DSA-Final-Project
 
-# Instructions on how to run
+# How to Run
 Run this command : make
 
 then run : ./a.out
@@ -16,6 +16,7 @@ Run Time - Emilio Pena
 
 Comparison - Tawhid Taher
 
+# Instructions
 INSTRUCTIONS:
 Final project of my Data Structures and Algorithms class (CSCE 3110). 
 

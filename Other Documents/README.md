@@ -1,5 +1,9 @@
 # DSA-Final-Project
 
+# Instructions on how to run
+Run this command : make
+then run : ./a.out
+
 # Portions
 Python Faker Library - Thane Tate
 

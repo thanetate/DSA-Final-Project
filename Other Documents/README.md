@@ -6,15 +6,7 @@ Run this command : make
 then run : ./a.out
 
 # Portions
-Python Faker Library, main.cpp - Thane Tate
-
-Linked List - Ryan Ghandour
-
-Binary Search Tree - Ryan B
-
-Run Time - Emilio Pena
-
-Comparison - Tawhid Taher
+Python Faker Library, Linked List, Binary Search Tree, Run Time Analysis, Comparison Analysis
 
 # Instructions
 INSTRUCTIONS:

@@ -1,4 +1,4 @@
-# DSA-Final-Project
+# Linked List and Binary Tree Project
 
 For our final project in Data Structures and Algorithms, we employed the Python Faker library to generate a substantial dataset of 100,000 fake student records. By utilizing this library, we created diverse and realistic data, including names, dates of birth, and addresses. This dataset was then used to populate and test our two primary data structures: a linked list and a binary search tree.
 

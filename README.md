@@ -12,7 +12,9 @@ then run : ./a.out
 
 # Portions
 
-Python Faker Library, Linked List, Binary Search Tree, Run Time Analysis, Comparison Analysis
+- Implementing a student management system using Linked List and Binary Search Tree.
+- Features include adding, deleting, searching for students by ID or Name, and updating student records. 
+- Inserted 100,000 fake student records using faker libraries.
 
 # Contributions:
 
